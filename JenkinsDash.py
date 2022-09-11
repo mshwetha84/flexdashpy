@@ -29,7 +29,7 @@ e = 0
 joblink = 0
 for j in range(sheet.ncols):
     t = sheet.cell_value(0, j)
-    m1 = re.search('http://(.+?).marketo', t)
+    m1 = re.search('http://(.+?).<servername>', t)
     if m1:
         found1 = m1.group(1)
         #print found1
@@ -107,7 +107,7 @@ all_dfs = []
 
 for sheet in all_sheets_df.keys():
     df1 = pd.read_excel(filePath, sheet)
-    #joblink = "http://" + sheet + ".marketo.org:8080/job/" + df1['Name']
+    #joblink = "http://" + sheet + ".<server>.org:8080/job/" + df1['Name']
     #df1['Job Link'] = joblink
     # format dataframe column of urls so that it displays as hyperlink
     def display_links(df1):
